@@ -6,15 +6,15 @@ export const Input = () => {
 
     return(
         <>
-            <input onChange={(e) =>
+            {/* <input onChange={(e) =>
                 {
                     setText(e.target.value);
                     console.log(e.target.value);
                 }} />
-            <button onClick={() => alert(text)}>클릭!</button>
+            <button onClick={() => alert(text)}>클릭!</button> */}
             {/* e는 event의 약자 */}
-            <br />
-            입력된 값: {text}
+            {/* <br /> */}
+            {/* 입력된 값: {text} */}
 
 
             <input ref={refText} />
