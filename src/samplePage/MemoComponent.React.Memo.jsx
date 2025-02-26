@@ -1,24 +1,28 @@
 import React, { useEffect } from "react";
 
 // +>리액트 메모화제이션을 통해 전체 컴포넌트가 랜더링되는 것을 방지, 굳이 다시 만들 필요가 없어짐?
-// +>리액트 - 랜더링 -메모화 => 최적화가 목적적
+// +>리액트 - 랜더링 -메모화 => 최적화가 목적
 // export const HeavyJobComponent = ({ num }) => {
-export const HeavyJobComponent = ({ num }) => {
+export const HeavyJobComponent = ({ num, numObj }) => {
     useEffect(() => {
         console.log("HeavyJobConponent 랜더링");
-    })
+    // })
+    }, [])
 
     useEffect(() => {
         console.log("num이 바뀌면 heavyPlus가 실행이 되요");
         heavyPlus();
-    }, [num])
+    // }, [num])
+    }, [numObj])
 
     const heavyPlus = () => {
         let total = 0;
         for(let i = 0; i < 123456; i++) {
-            total += num;
+            // total += num;
+            total += numObj.num;
         }
-        return total + num;
+        // return total + num;
+        return total + numObj.num;
     }
     
     const result = heavyPlus();

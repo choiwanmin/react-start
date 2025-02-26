@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+/* @import 'tailwindcss'; */
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -9,8 +10,8 @@ th, td {
     border-bottom: 1px solid #CD5C5C;
     text-align: center;
 }
-.card {
+/* .card {
     border-radius: 8px;
     border: 1px solid black;
     cursor: pointer;
-  }
+  } */
