@@ -4,58 +4,62 @@ import React, { useEffect } from "react";
 // +>리액트 - 랜더링 -메모화 => 최적화가 목적
 // export const HeavyJobComponent = ({ num }) => {
 export const HeavyJobComponent = ({ num, numObj }) => {
-    useEffect(() => {
-        console.log("HeavyJobConponent 랜더링");
+  useEffect(() => {
+    console.log("HeavyJobConponent 랜더링");
     // })
-    }, [])
+  }, []);
 
-    useEffect(() => {
-        console.log("num이 바뀌면 heavyPlus가 실행이 되요");
-        heavyPlus();
+  useEffect(() => {
+    console.log("num이 바뀌면 heavyPlus가 실행이 되요");
+    heavyPlus();
     // }, [num])
-    }, [numObj])
+  }, [numObj]);
 
-    const heavyPlus = () => {
-        let total = 0;
-        for(let i = 0; i < 123456; i++) {
-            // total += num;
-            total += numObj.num;
-        }
-        // return total + num;
-        return total + numObj.num;
+  const heavyPlus = () => {
+    let total = 0;
+    for (let i = 0; i < 123456; i++) {
+      // total += num;
+      total += numObj.num;
     }
-    
-    const result = heavyPlus();
+    // return total + num;
+    return total + numObj.num;
+  };
 
-    return (
-        <p>"{num}"를 더해서 만든 연산 결과는 <b>{result}</b> 입니다!</p>
-    )
-}
+  const result = heavyPlus();
 
-export const HeavyJobComponent2 = ({num}) => {
-    useEffect(() => {
-        console.log("HeavyJobConponent2 랜더링");
-    })
+  return (
+    <p>
+      "{num}"를 더해서 만든 연산 결과는 <b>{result}</b> 입니다!
+    </p>
+  );
+};
 
-    useEffect(() => {
-        console.log("num이 바뀌면 heavyMulti가 실행이 되요");
-        heavyMulti();
-    }, [num])
+export const HeavyJobComponent2 = ({ num }) => {
+  useEffect(() => {
+    console.log("HeavyJobConponent2 랜더링");
+  });
 
-    const heavyMulti = () => {
-        let total = 0;
-        for(let i = 0; i < 123456; i++) {
-            total += num;
-        }
-        return total * num;
+  useEffect(() => {
+    console.log("num이 바뀌면 heavyMulti가 실행이 되요");
+    heavyMulti();
+  }, [num]);
+
+  const heavyMulti = () => {
+    let total = 0;
+    for (let i = 0; i < 123456; i++) {
+      total += num;
     }
-    
-    const result = heavyMulti();
+    return total * num;
+  };
 
-    return (
-        <p>"{num}"를 더해서 만든 연산 결과는 <b>{result}</b> 입니다!</p>
-    )
-}
+  const result = heavyMulti();
+
+  return (
+    <p>
+      "{num}"를 더해서 만든 연산 결과는 <b>{result}</b> 입니다!
+    </p>
+  );
+};
 
 export const MemoHeavyJobComponent = React.memo(HeavyJobComponent);
 export const MemoHeavyJobComponent2 = React.memo(HeavyJobComponent2);
